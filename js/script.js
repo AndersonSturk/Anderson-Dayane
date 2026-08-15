@@ -10,11 +10,14 @@ let isMusicPlaying = false;
 
 function playAudio() {
     if (bgMusic && bgMusic.paused) {
+        bgMusic.volume = 0.5; // Ajusta o volume inicial para 50%
         bgMusic.play().then(() => {
             isMusicPlaying = true;
-            musicBtn.classList.add('playing');
-            musicIcon.textContent = '🎵';
-        }).catch(err => console.log("Aguardando interação do usuário para reproduzir áudio: ", err));
+            if (musicBtn) musicBtn.classList.add('playing');
+            if (musicIcon) musicIcon.textContent = '🎵';
+        }).catch(err => {
+            console.log("Aguardando interação do usuário para reproduzir áudio: ", err);
+        });
     }
 }
 
@@ -22,12 +25,15 @@ function pauseAudio() {
     if (bgMusic && !bgMusic.paused) {
         bgMusic.pause();
         isMusicPlaying = false;
-        musicBtn.classList.remove('playing');
-        musicIcon.textContent = '🔇';
+        if (musicBtn) musicBtn.classList.remove('playing');
+        if (musicIcon) musicIcon.textContent = '🔇';
     }
 }
 
-// Inicia no primeiro clique ou toque em qualquer lugar da tela
+// 1. Tenta reproduzir imediatamente ao carregar a página
+playAudio();
+
+// 2. Se o navegador bloqueou por padrão, toca no primeiro clique, toque ou scroll
 function initAudioOnInteraction() {
     playAudio();
     document.removeEventListener('click', initAudioOnInteraction);
@@ -49,7 +55,6 @@ if (musicBtn) {
         }
     });
 }
-
 // === PETALS ===
 const PETALS = ['🌸', '🌹', '❤️', '💕', '🌺', '💗', '🌷', '✨', '🍂'];
 

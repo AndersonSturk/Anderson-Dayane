@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anderson & Dayane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         AUDIO & CONTROLE DE MÚSICA
+         ============================================================ -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+    </audio>
+
+    <button id="music-control" title="Alternar Música" aria-label="Alternar Música">
+        <span id="music-icon">🎵</span>
+    </button>
+
+    <div id="petals-container" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="postcard-frame reveal">
+                <div class="postcard-eyebrow">UMA HISTORIA DE AMOR</div>
+                <div class="postcard-names">
+                    <span class="name">Anderson</span>
+                    <span class="heart-icon">&#10084;</span>
+                    <span class="name">Dayane</span>
+                </div>
+                <div class="postcard-since">desde 18 de mar&ccedil;o de 2026</div>
+                <div class="postcard-stamp">
+                    <div class="stamp-heart">&#9829;</div>
+                    <div class="stamp-word">AMOR</div>
+                </div>
+            </div>
+            <p class="hero-hint">role para baixo &#8595;</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOTO + FRASE #1 — Os primeiros dias
+         ============================================================ -->
+    <section class="photo-verse pv-dark">
+        <div class="pv-inner reveal">
+            <div class="pv-photo-wrap" onclick="openLightbox('fotos/IMG-20260313-WA0028.jpg','os primeiros dias...')">
+                <img src="fotos/IMG-20260313-WA0028.jpg" alt="Os primeiros dias" class="pv-img" onerror="this.parentNode.classList.add('broken')">
+                <div class="pv-broken">&#128247;</div>
+                <div class="pv-overlay">ver foto</div>
+            </div>
+            <div class="pv-text">
+                <div class="pv-ornament">&#10086;</div>
+                <blockquote class="pv-quote">
+                    &ldquo;Quando voc&ecirc; apareceu, algo mudou silenciosamente &mdash; como quando o sol sai de tr&aacute;s de uma nuvem e voc&ecirc; s&oacute; percebe porque tudo ficou mais bonito.&rdquo;
+                </blockquote>
+                <p class="pv-date">13 de Mar&ccedil;o de 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTADOR
+         ============================================================ -->
+    <section id="counter" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Juntos H&aacute;</h2>
+            <div class="ornament reveal">&mdash; &#10087; &mdash;</div>
+            <div class="counter-row reveal">
+                <div class="flip-card">
+                    <span class="flip-num" id="c-years">00</span>
+                    <span class="flip-label">Anos</span>
+                </div>
+                <span class="flip-sep">:</span>
+                <div class="flip-card">
+                    <span class="flip-num" id="c-months">00</span>
+                    <span class="flip-label">Meses</span>
+                </div>
+                <span class="flip-sep">:</span>
+                <div class="flip-card">
+                    <span class="flip-num" id="c-days">00</span>
+                    <span class="flip-label">Dias</span>
+                </div>
+                <span class="flip-sep">:</span>
+                <div class="flip-card">
+                    <span class="flip-num" id="c-hours">00</span>
+                    <span class="flip-label">Horas</span>
+                </div>
+                <span class="flip-sep">:</span>
+                <div class="flip-card">
+                    <span class="flip-num" id="c-minutes">00</span>
+                    <span class="flip-label">Min</span>
+                </div>
+                <span class="flip-sep">:</span>
+                <div class="flip-card accent">
+                    <span class="flip-num" id="c-seconds">00</span>
+                    <span class="flip-label">Seg</span>
+                </div>
+            </div>
+            <p class="counter-quote reveal">&ldquo;e cada segundo ao seu lado &eacute; o melhor da minha vida&rdquo;</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOTO + FRASE #2 — Cada sorriso
+         ============================================================ -->
+    <section class="photo-verse pv-cream">
+        <div class="pv-inner pv-reverse reveal">
+            <div class="pv-photo-wrap" onclick="openLightbox('fotos/IMG-20260315-WA0026.jpg','felicidade e isso aqui')">
+                <img src="fotos/IMG-20260315-WA0026.jpg" alt="Felicidade" class="pv-img" onerror="this.parentNode.classList.add('broken')">
+                <div class="pv-broken">&#128247;</div>
+                <div class="pv-overlay">ver foto</div>
+            </div>
+            <div class="pv-text pv-text-dark">
+                <div class="pv-ornament pv-orn-dark">&#10086;</div>
+                <blockquote class="pv-quote pv-quote-dark">
+                    &ldquo;Cada vez que voc&ecirc; sorri, eu entendo um pouco mais o porqu&ecirc; de tudo. &Eacute; como se a vida tivesse esperado voc&ecirc; pra fazer sentido.&rdquo;
+                </blockquote>
+                <p class="pv-date pv-date-dark">15 de Mar&ccedil;o de 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         GALERIA — Nossos Momentos
+         ============================================================ -->
+    <section id="gallery" class="section alt">
+        <div class="container wide">
+            <h2 class="section-title reveal">Nossos Momentos</h2>
+            <div class="ornament reveal">&mdash; &#10087; &mdash;</div>
+            <div class="polaroid-grid">
+
+                <div class="polaroid reveal" style="--r:-4deg" data-src="fotos/IMG-20260313-WA0027.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260313-WA0027.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">os primeiros dias...</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:3deg" data-src="fotos/IMG-20260315-WA0020.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260315-WA0020.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">felicidade &eacute; isso aqui</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:-2deg" data-src="fotos/IMG_20260325_194921.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG_20260325_194921.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">25 de mar&ccedil;o &#10084;</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:5deg" data-src="fotos/IMG-20260403-WA0043.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260403-WA0043.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">cada dia mais apaixonado</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:-3deg" data-src="fotos/IMG_20260424_201238.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG_20260424_201238.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">ao seu lado &eacute; onde quero estar</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:2deg" data-src="fotos/IMG-20260425-WA0010.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260425-WA0010.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">sorrisos que n&atilde;o t&ecirc;m fim</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:-5deg" data-src="fotos/IMG-20260502-WA0012.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260502-WA0012.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">voc&ecirc; ilumina tudo</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:4deg" data-src="fotos/IMG-20260502-WA0062.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260502-WA0062.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">momentos que quero guardar</p>
+                </div>
+
+                <div class="polaroid reveal" style="--r:-2deg" data-src="fotos/IMG-20260516-WA0022.jpg">
+                    <div class="pol-photo">
+                        <img src="fotos/IMG-20260516-WA0022.jpg" alt="" class="pol-img">
+                        <div class="pol-empty">&#128247;</div>
+                    </div>
+                    <p class="pol-caption">sempre contigo &#10084;</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOTO + FRASE #3 — Amor sem pressa
+         ============================================================ -->
+    <section class="photo-verse pv-dark">
+        <div class="pv-inner reveal">
+            <div class="pv-photo-wrap" onclick="openLightbox('fotos/IMG-20260403-WA0047.jpg','voce me ensinou o que e amar de verdade')">
+                <img src="fotos/IMG-20260403-WA0047.jpg" alt="Amor sem pressa" class="pv-img" onerror="this.parentNode.classList.add('broken')">
+                <div class="pv-broken">&#128247;</div>
+                <div class="pv-overlay">ver foto</div>
+            </div>
+            <div class="pv-text">
+                <div class="pv-ornament">&#10086;</div>
+                <blockquote class="pv-quote">
+                    &ldquo;Voc&ecirc; me ensinou que amor de verdade n&atilde;o tem pressa, n&atilde;o tem medo, n&atilde;o precisa de explica&ccedil;&atilde;o. &Eacute; s&oacute; sentir &mdash; e ser grato todos os dias por isso.&rdquo;
+                </blockquote>
+                <p class="pv-date">3 de Abril de 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CARTA
+         ============================================================ -->
+    <section id="letter" class="section">
+        <div class="container narrow">
+            <h2 class="section-title reveal">Carta para Voc&ecirc;</h2>
+            <div class="ornament reveal">&mdash; &#10087; &mdash;</div>
+            <div class="letter-wrap reveal">
+                <div class="letter-paper">
+                    <p class="letter-date">18 de Mar&ccedil;o de 2026</p>
+                    <p class="letter-greeting">Minha querida Dayane,</p>
+                    <div class="letter-body">
+                        <p>&Agrave;s vezes eu olho pra voc&ecirc; e n&atilde;o consigo acreditar que de alguma forma o universo conspirou para nos colocar no mesmo caminho. Que sorte a minha.</p>
+                        <p>Cada momento ao seu lado &eacute; um presente que eu n&atilde;o sabia que merecia. Seu sorriso me desarmou desde o primeiro dia, e desde ent&atilde;o, cada manh&atilde; faz mais sentido porque voc&ecirc; existe.</p>
+                        <p>Voc&ecirc; n&atilde;o &eacute; apenas a pessoa por quem me apaixonei &mdash; voc&ecirc; &eacute; minha parceira, meu lar, o lugar onde me sinto inteiro. Com voc&ecirc; aprendi que amor de verdade n&atilde;o &eacute; drama, &eacute; parceria. &Eacute; se olhar no olho e saber que ali &eacute; onde voc&ecirc; quer ficar.</p>
+                        <p>Criei esse espa&ccedil;o pra te mostrar, de um jeito que as palavras muitas vezes n&atilde;o conseguem, o quanto voc&ecirc; significa pra mim. Cada foto, cada mem&oacute;ria, cada segundo contado aqui &eacute; uma prova de que o que a gente tem &eacute; real e especial.</p>
+                        <p>Obrigado por existir. Obrigado por ser voc&ecirc;.</p>
+                    </div>
+                    <div class="letter-sign">
+                        Com todo o meu amor,<br>
+                        <span class="sign-name">Anderson</span> &#10084;
+                    </div>
+                </div>
+                <div class="wax-seal">&#10084;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOTO + FRASE #4 — Qualquer lugar e lar
+         ============================================================ -->
+    <section class="photo-verse pv-cream">
+        <div class="pv-inner pv-reverse reveal">
+            <div class="pv-photo-wrap" onclick="openLightbox('fotos/IMG-20260425-WA0068.jpg','qualquer lugar vira lar ao seu lado')">
+                <img src="fotos/IMG-20260425-WA0068.jpg" alt="Qualquer lugar" class="pv-img" onerror="this.parentNode.classList.add('broken')">
+                <div class="pv-broken">&#128247;</div>
+                <div class="pv-overlay">ver foto</div>
+            </div>
+            <div class="pv-text pv-text-dark">
+                <div class="pv-ornament pv-orn-dark">&#10086;</div>
+                <blockquote class="pv-quote pv-quote-dark">
+                    &ldquo;Eu n&atilde;o preciso de mundos nem de viagens para ser feliz. S&oacute; preciso da sua m&atilde;o na minha &mdash; e qualquer lugar disso vira lar.&rdquo;
+                </blockquote>
+                <p class="pv-date pv-date-dark">25 de Abril de 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         POR QUE TE AMO
+         ============================================================ -->
+    <section id="reasons" class="section alt">
+        <div class="container">
+            <h2 class="section-title reveal">Por Que Te Amo</h2>
+            <div class="ornament reveal">&mdash; &#10087; &mdash;</div>
+            <div class="reasons-grid">
+                <div class="reason-card reveal">
+                    <span class="reason-num">01</span>
+                    <p>Pelo seu sorriso que ilumina qualquer lugar que voc&ecirc; entra</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">02</span>
+                    <p>Pela forma como voc&ecirc; me olha e me faz sentir o homem mais sortudo do mundo</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">03</span>
+                    <p>Por ser minha parceira em tudo &mdash; nas risadas e nos momentos dif&iacute;ceis</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">04</span>
+                    <p>Por tornar cada dia mais especial s&oacute; com a sua presen&ccedil;a</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">05</span>
+                    <p>Pela sua gargalhada que &eacute; o melhor som que j&aacute; ouvi na vida</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">06</span>
+                    <p>Por me escolher todos os dias e me fazer querer ser melhor</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">07</span>
+                    <p>Por me mostrar o que &eacute; amor de verdade, sem condi&ccedil;&otilde;es, sem cobran&ccedil;as</p>
+                </div>
+                <div class="reason-card reveal">
+                    <span class="reason-num">08</span>
+                    <p>Por existir e por ser exatamente quem voc&ecirc; &eacute; &mdash; perfeita do seu jeito</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOTO + FRASE #5 — Momentos simples
+         ============================================================ -->
+    <section class="photo-verse pv-dark">
+        <div class="pv-inner reveal">
+            <div class="pv-photo-wrap" onclick="openLightbox('fotos/IMG-20260502-WA0041.jpg','com voce ate o simples vira eterno')">
+                <img src="fotos/IMG-20260502-WA0041.jpg" alt="Momentos simples" class="pv-img" onerror="this.parentNode.classList.add('broken')">
+                <div class="pv-broken">&#128247;</div>
+                <div class="pv-overlay">ver foto</div>
+            </div>
+            <div class="pv-text">
+                <div class="pv-ornament">&#10086;</div>
+                <blockquote class="pv-quote">
+                    &ldquo;Com voc&ecirc; at&eacute; os momentos mais simples t&ecirc;m sabor de mem&oacute;ria que vai durar a vida inteira. &Eacute; isso que voc&ecirc; faz &mdash; transforma o cotidiano em algo que vale guardar.&rdquo;
+                </blockquote>
+                <p class="pv-date">2 de Maio de 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         MURAL DE RECADOS
+         ============================================================ -->
+    <section id="mural" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Mural de Recados</h2>
+            <div class="ornament reveal">&mdash; &#10087; &mdash;</div>
+            <p class="mural-intro reveal">Aqui &eacute; o seu espa&ccedil;o, Dayane &#128140;</p>
+
+            <div class="cork-board reveal">
+                <div class="sticky yellow" style="--rot:-4deg">
+                    <span class="sticky-pin">&#128204;</span>
+                    <p class="sticky-from">De: Anderson &#128155;</p>
+                    <p>Voc&ecirc; &eacute; a melhor coisa que aconteceu pra mim este ano!</p>
+                </div>
+                <div class="sticky pink" style="--rot:3deg">
+                    <span class="sticky-pin">&#128204;</span>
+                    <p class="sticky-from">De: Anderson &#128149;</p>
+                    <p>Obrigado por cada abra&ccedil;o apertado, cada beijo, cada momento...</p>
+                </div>
+                <div class="sticky blue" style="--rot:-2deg">
+                    <span class="sticky-pin">&#128204;</span>
+                    <p class="sticky-from">De: Anderson &#128153;</p>
+                    <p>Voc&ecirc; &eacute; o meu lar. Onde voc&ecirc; estiver, &eacute; onde eu quero estar.</p>
+                </div>
+                <div class="sticky green" style="--rot:4deg">
+                    <span class="sticky-pin">&#128204;</span>
+                    <p class="sticky-from">De: Anderson &#128154;</p>
+                    <p>Eu te escolho hoje, amanh&atilde; e sempre. &#127807;</p>
+                </div>
+                <div id="dynamic-notes"></div>
+            </div>
+
+            <div class="note-form reveal">
+                <h3 class="note-form-title">&#9999;&#65039; Escreva um recado</h3>
+                <textarea id="note-input" placeholder="Escreva aqui, Dayane... &#128140;" maxlength="180"></textarea>
+                <div class="note-form-footer">
+                    <span id="char-count">0/180</span>
+                    <button onclick="pinNote()">&#128204; Fixar no Mural</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PEDIDO DE NOIVADO
+         ============================================================ -->
+    <section id="proposal" class="section proposal-section">
+        <div class="container wide">
+            <h2 class="section-title reveal">Selar Nossa Hist&oacute;ria</h2>
+            <div class="ornament reveal">&mdash; &#10087; &mdash;</div>
+
+            <div class="proposal-lead reveal">
+                <p>Voc&ecirc; &eacute; e sempre ser&aacute; o amor da minha vida.</p>
+                <p class="proposal-highlight">E agora, quero dar o pr&oacute;ximo passo da nossa hist&oacute;ria.</p>
+            </div>
+
+            <div class="proposal-layout">
+                <div class="proposal-photos reveal">
+                    <div class="proposal-photo" style="--r:-5deg" onclick="openLightbox('fotos/IMG-20260614-WA0003.jpg','nosso amor')">
+                        <img src="fotos/IMG-20260614-WA0003.jpg" alt="Anderson e Dayane" loading="lazy">
+                    </div>
+                    <div class="proposal-photo" style="--r:4deg" onclick="openLightbox('fotos/IMG-20260704-WA0017.jpg','nosso amor')">
+                        <img src="fotos/IMG-20260704-WA0017.jpg" alt="Anderson e Dayane" loading="lazy">
+                    </div>
+                    <div class="proposal-photo" style="--r:-3deg" onclick="openLightbox('fotos/IMG-20260705-WA0017.jpg','nosso amor')">
+                        <img src="fotos/IMG-20260705-WA0017.jpg" alt="Anderson e Dayane" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="proposal-main">
+                    <div id="proposal-question" class="proposal-card reveal">
+                        <div class="proposal-ring">&#128142;</div>
+                        <h3 class="proposal-ask">Dayane, voc&ecirc; aceita noivar comigo?</h3>
+                        <p class="proposal-sub">ESCOLHA COM O CORA&Ccedil;&Atilde;O</p>
+                        <div id="proposal-buttons" class="proposal-buttons">
+                            <button id="btn-yes" class="btn-yes" onclick="sayYes()">Sim, aceito! &#128142;</button>
+                            <button id="btn-no" class="btn-no" onmouseenter="dodgeNo()" onclick="dodgeNo()" ontouchstart="dodgeNo(); event.preventDefault();">N&atilde;o</button>
+                        </div>
+                    </div>
+
+                    <div id="proposal-celebration" class="proposal-celebration">
+                        <div class="celebration-ring">&#128142;</div>
+                        <h3 class="celebration-title">ELA DISSE SIM!</h3>
+                        <p class="celebration-text">Anderson &amp; Dayane est&atilde;o noivos &#10084;&#65039;</p>
+                        <p class="celebration-date" id="celebration-date"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-names">Anderson &#10084; Dayane</p>
+            <p class="footer-since">Desde 18 de Mar&ccedil;o de 2026</p>
+            <p class="footer-quote">&ldquo;Voc&ecirc; &eacute; e sempre ser&aacute; o amor da minha vida.&rdquo;</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         LIGHTBOX
+         ============================================================ -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <button id="lb-close" onclick="closeLightbox()">&#10005;</button>
+        <img id="lb-img" src="" alt="">
+        <p id="lb-caption"></p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

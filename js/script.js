@@ -55,6 +55,7 @@ if (musicBtn) {
         }
     });
 }
+
 // === PETALS ===
 const PETALS = ['🌸', '🌹', '❤️', '💕', '🌺', '💗', '🌷', '✨', '🍂'];
 
@@ -62,9 +63,9 @@ function spawnPetal() {
     const el = document.createElement('div');
     el.className = 'petal';
     el.textContent = PETALS[Math.floor(Math.random() * PETALS.length)];
-    el.style.left     = Math.random() * 100 + 'vw';
+    el.style.left      = Math.random() * 100 + 'vw';
     el.style.fontSize = (10 + Math.random() * 14) + 'px';
-    el.style.opacity  = (.3 + Math.random() * .45).toFixed(2);
+    el.style.opacity   = (.3 + Math.random() * .45).toFixed(2);
     const dur = 5 + Math.random() * 7;
     el.style.animationDuration = dur + 's';
     el.style.animationDelay   = (Math.random() * 2) + 's';
@@ -288,20 +289,14 @@ function dodgeNo() {
     btn.textContent = NO_MESSAGES[noMsgIndex];
 }
 
-function formatDatePt(date) {
-    const months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
-                     'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-    return `${date.getDate()} de ${months[date.getMonth()]} de ${date.getFullYear()}`;
-}
-
-function showCelebration(date, burst) {
-    const question     = document.getElementById('proposal-question');
-    const celebration   = document.getElementById('proposal-celebration');
+function showCelebration(dateStr, burst) {
+    const question    = document.getElementById('proposal-question');
+    const celebration = document.getElementById('proposal-celebration');
     const dateEl        = document.getElementById('celebration-date');
 
     if (question)    question.style.display = 'none';
     if (celebration)  celebration.classList.add('show');
-    if (dateEl)        dateEl.textContent = formatDatePt(date);
+    if (dateEl)        dateEl.textContent = dateStr;
 
     if (burst) {
         for (let i = 0; i < 40; i++) setTimeout(spawnPetal, i * 40);
@@ -309,13 +304,17 @@ function showCelebration(date, burst) {
 }
 
 function sayYes() {
-    localStorage.setItem(PROPOSAL_KEY, JSON.stringify({ answered: true, date: new Date().toISOString() }));
-    showCelebration(new Date(), true);
+    // Data fixa gravada para a celebração
+    const fixedDateText = "14 de Agosto de 2026";
+    localStorage.setItem(PROPOSAL_KEY, JSON.stringify({ answered: true, dateText: fixedDateText }));
+    showCelebration(fixedDateText, true);
 }
 
 (function restoreProposal() {
     const saved = JSON.parse(localStorage.getItem(PROPOSAL_KEY) || 'null');
-    if (saved && saved.answered) showCelebration(new Date(saved.date), false);
+    if (saved && saved.answered) {
+        showCelebration(saved.dateText || "14 de Agosto de 2026", false);
+    }
 })();
 
 // === SCROLL REVEAL ===
